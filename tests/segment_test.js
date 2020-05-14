@@ -1,7 +1,7 @@
 "use strict";
 
 const pinyin = require("../index");
-const jieba = require("nodejieba");
+const jieba = require("@node-rs/jieba");
 
 console.log(pinyin("重庆大学", {segment: true}));
 console.log(pinyin("重庆大学", {
@@ -18,5 +18,6 @@ console.log(pinyin("漯河", {
 
 
 const han = "女流氓";
-const jb = jieba.cutSmall(han, 4);
+jieba.load();
+const jb = jieba.cut(han, false);
 console.log(han, jb);
